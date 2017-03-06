@@ -6,6 +6,6 @@
 - name: Configure jails
   template: >
     src=jail.local.j2
-    dest={{ f2b_jail_path }}/{{ f2b_jail }}.local
-    verify="fail2ban-client -d"
-  notify: Reload Fail2ban
+    dest={{ f2b_jail_path }}/{{ item.key }}.local
+  with_dict: "{{ f2b_jails }}"
+  notify: Restart Fail2ban
