@@ -1,0 +1,6 @@
+---
+- name: Enable Fail2ban
+  service: name=fail2ban enabled=yes
+
+- name: Reload Fail2ban
+  service: name=fail2ban state=reloaded
