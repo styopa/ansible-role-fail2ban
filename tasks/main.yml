@@ -3,9 +3,9 @@
   package: name=fail2ban
   notify: Enable Fail2ban
 
-- name: Configure jail "{{ f2b_jail }}"
+- name: Configure jails
   template: >
     src=jail.local.j2
     dest={{ f2b_jail_path }}/{{ f2b_jail }}.local
-    verify=fail2ban-client -d
+    verify="fail2ban-client -d"
   notify: Reload Fail2ban
