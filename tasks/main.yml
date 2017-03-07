@@ -20,7 +20,7 @@
 
 - name: Configure jails
   template: >
-    src=jail.local.j2
+    src=jail.j2
     dest={{ f2b_conf_path }}/jail.d/{{ item.key }}.local
   with_dict: "{{ f2b_jails }}"
   when: f2b_jails is defined
