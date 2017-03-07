@@ -11,10 +11,17 @@
   with_items: "{{ f2b_deps[f2b_ban_action] }}"
   when: f2b_ban_action is defined and f2b_ban_action in f2b_deps
 
+- name: Configure default action
+  template: >
+    src=jail.local.j2
+    dest={{ f2b_conf_path }}/jail.local
+  when: f2b_ban_action is defined
+  notify: Restart Fail2ban
+
 - name: Configure jails
   template: >
     src=jail.local.j2
-    dest={{ f2b_jail_path }}/{{ item.key }}.local
+    dest={{ f2b_conf_path }}/jail.d/{{ item.key }}.local
   with_dict: "{{ f2b_jails }}"
   when: f2b_jails is defined
   notify: Restart Fail2ban

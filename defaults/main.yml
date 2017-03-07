@@ -1,2 +1,2 @@
 ---
-f2b_jail_path: /etc/fail2ban/jail.d
+f2b_conf_path: /etc/fail2ban

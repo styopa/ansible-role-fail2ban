@@ -1,8 +1,2 @@
-[{{ item.key }}]
-enabled = true
-maxretry = {{ item.value.max_retry | default(5) }}
-findtime = {{ item.value.find_time | default(600) }}
-bantime = {{ item.value.ban_time | default(600) }}
-{% if item.value.ban_action is defined %}
-banaction = {{ item.value.ban_action }}
-{% endif %}
+[DEFAULT]
+banaction = {{ f2b_ban_action }}
