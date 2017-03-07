@@ -1,0 +1,18 @@
+---
+f2b_deps:
+  apf: [apf-firewall]
+  badips: [curl]
+  blocklist_de: [curl]
+  complain: [dnsutils]
+  firewallcmd-ipset: [firewalld, ipset]
+  firewallcmd-new: [firewalld]
+  mail-whois: [whois]
+  mail-whois-lines: [whois]
+  route: [iproute2]
+  sendmail-buffered: [mail-transport-agent]
+  sendmail-common: [mail-transport-agent]
+  sendmail: [mail-transport-agent]
+  sendmail-whois: [mail-transport-agent]
+  sendmail-whois-lines: [mail-transport-agent]
+  shorewall: [shorewall]
+  ufw: [ufw]

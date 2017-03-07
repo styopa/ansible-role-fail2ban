@@ -3,9 +3,18 @@
   package: name=fail2ban
   notify: Enable Fail2ban
 
+- name: Load variables
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Install packages for default action
+  package: name={{ item }}
+  with_items: "{{ f2b_deps[f2b_ban_action] }}"
+  when: f2b_ban_action is defined and f2b_ban_action in f2b_deps
+
 - name: Configure jails
   template: >
     src=jail.local.j2
     dest={{ f2b_jail_path }}/{{ item.key }}.local
   with_dict: "{{ f2b_jails }}"
+  when: f2b_jails is defined
   notify: Restart Fail2ban
